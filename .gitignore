@@ -1,4 +1,4 @@
-webapi/obj
-webapi/bin
+webapi/obj/
+webapi/bin/
 webapi-tests/obj
 webapi-tests/bin
