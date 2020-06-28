@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "a50a98e5-515b-44f5-9dbd-19dafa3a4e35",
+		"name": "Dotnet Core Regression Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://sharmalakshay.com",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cfb2a2b8-a42d-4e83-ad0d-0e074bfb027c",
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"pm.test(\"Length of response is 5\", () => {",
+							"    pm.expect(response.length).to.equal(5);",
+							"});",
+							"",
+							"pm.test(\"Should have date, temperatureC, temperatureF, and summary field\", () => {",
+							"    let res = response[0];",
+							"    pm.expect(Object.keys(res).length).to.eq(4);",
+							"    pm.expect(res.date).to.not.eq(null);",
+							"    pm.expect(res.temperatureC).to.not.eq(null);",
+							"    pm.expect(res.temperatureF).to.not.eq(null);",
+							"    pm.expect(res.summary).to.not.eq(null);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/weatherforecast/forecast",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"weatherforecast",
+						"forecast"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a68e9d75-ca40-44f7-9d3a-60078d1d11c9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8fb640d4-2cb0-48c4-ad54-ab0bce75e6e4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
